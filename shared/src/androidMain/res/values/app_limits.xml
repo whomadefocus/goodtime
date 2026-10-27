@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_limits_accessibility_service_label">Goodtime app limits</string>
+    <string name="app_limits_accessibility_service_description">Detects when a daily app limit is reached and opens the limit screen.</string>
+</resources>

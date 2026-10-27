@@ -94,8 +94,6 @@ fun StatisticsScreen(
     historyViewModel: StatisticsHistoryViewModel = koinViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    val historyUiState by historyViewModel.uiState.collectAsStateWithLifecycle()
-    val isLoadingHistoryChartData = historyUiState.isLoading
     val sessionsPagingItems = viewModel.pagedSessions.collectAsLazyPagingItems()
     val historyListState = rememberLazyListState()
 
@@ -106,8 +104,6 @@ fun StatisticsScreen(
     var showDeleteConfirmationDialog by rememberSaveable { mutableStateOf(false) }
     var showEditBulkLabelDialog by rememberSaveable { mutableStateOf(false) }
     var showEditLabelConfirmationDialog by rememberSaveable { mutableStateOf(false) }
-
-    val isLoading = uiState.isLoading || isLoadingHistoryChartData
 
     BackHandler(enabled = uiState.showSelectionUi) {
         if (uiState.showSelectionUi) {
@@ -147,7 +143,7 @@ fun StatisticsScreen(
                 stringResource(Res.string.stats_timeline),
             )
 
-        Crossfade(isLoading) { isLoading ->
+        Crossfade(uiState.isLoading) { isLoading ->
             if (isLoading) {
                 Box(modifier = Modifier.fillMaxSize()) {
                     CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
@@ -363,6 +359,7 @@ fun StatisticsScreen(
                     )
                 }
                 if (showSelectVisibleLabelsDialog) {
+                    val historyUiState by historyViewModel.uiState.collectAsStateWithLifecycle()
                     SelectStatsVisibleLabelsDialog(
                         labels = uiState.labels,
                         initialSelectedLabels = uiState.selectedLabels,

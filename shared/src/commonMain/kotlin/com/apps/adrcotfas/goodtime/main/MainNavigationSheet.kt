@@ -29,6 +29,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Label
+import androidx.compose.material.icons.outlined.Apps
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -42,6 +43,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.apps.adrcotfas.goodtime.common.getVersionName
+import com.apps.adrcotfas.goodtime.platform.getPlatformConfiguration
 import com.apps.adrcotfas.goodtime.settings.ActionSection
 import com.apps.adrcotfas.goodtime.ui.IconTextButton
 import com.apps.adrcotfas.goodtime.ui.SubtleHorizontalDivider
@@ -53,6 +55,7 @@ import compose.icons.evaicons.outline.Settings
 import compose.icons.evaicons.outline.Sync
 import goodtime_productivity.shared.generated.resources.Res
 import goodtime_productivity.shared.generated.resources.about_and_feedback_title
+import goodtime_productivity.shared.generated.resources.app_limits_title
 import goodtime_productivity.shared.generated.resources.backup_and_restore_title
 import goodtime_productivity.shared.generated.resources.labels_title
 import goodtime_productivity.shared.generated.resources.product_name_long
@@ -94,6 +97,10 @@ fun MainNavigationSheet(
                 navController.navigate(StatsDest)
                 onHideSheet()
             },
+            navigateToAppLimits = {
+                navController.navigate(AppLimitsDest)
+                onHideSheet()
+            },
             navigateToSettings = {
                 navController.navigate(SettingsDest)
                 onHideSheet()
@@ -124,6 +131,7 @@ fun MainNavigationSheetContent(
     onNotificationPermissionGranted: (Boolean) -> Unit,
     navigateToLabels: () -> Unit,
     navigateToStats: () -> Unit,
+    navigateToAppLimits: () -> Unit,
     navigateToSettings: () -> Unit,
     navigateToBackup: () -> Unit,
     navigateToAbout: () -> Unit,
@@ -179,6 +187,18 @@ fun MainNavigationSheetContent(
             },
             onClick = navigateToStats,
         )
+        if (getPlatformConfiguration().isAndroid) {
+            IconTextButton(
+                title = stringResource(Res.string.app_limits_title),
+                icon = {
+                    Icon(
+                        imageVector = Icons.Outlined.Apps,
+                        contentDescription = stringResource(Res.string.app_limits_title),
+                    )
+                },
+                onClick = navigateToAppLimits,
+            )
+        }
         IconTextButton(
             title = stringResource(Res.string.backup_and_restore_title),
             icon = {

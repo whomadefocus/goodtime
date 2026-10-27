@@ -43,6 +43,9 @@ data object ArchivedLabelsDest
 data object StatsDest
 
 @Serializable
+data object AppLimitsDest
+
+@Serializable
 data object SettingsDest
 
 @Serializable

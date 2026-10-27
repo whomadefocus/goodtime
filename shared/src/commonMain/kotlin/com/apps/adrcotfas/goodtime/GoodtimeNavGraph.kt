@@ -21,12 +21,14 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import com.apps.adrcotfas.goodtime.applimits.AppLimitsScreen
 import com.apps.adrcotfas.goodtime.backup.BackupScreen
 import com.apps.adrcotfas.goodtime.billing.ProScreen
 import com.apps.adrcotfas.goodtime.labels.addedit.AddEditLabelScreen
 import com.apps.adrcotfas.goodtime.labels.archived.ArchivedLabelsScreen
 import com.apps.adrcotfas.goodtime.labels.main.LabelsScreen
 import com.apps.adrcotfas.goodtime.main.AboutDest
+import com.apps.adrcotfas.goodtime.main.AppLimitsDest
 import com.apps.adrcotfas.goodtime.main.AcknowledgementsDest
 import com.apps.adrcotfas.goodtime.main.AddEditLabelDest
 import com.apps.adrcotfas.goodtime.main.ArchivedLabelsDest
@@ -102,6 +104,9 @@ fun NavGraphBuilder.goodtimeNavGraph(
         StatisticsScreen(
             onNavigateBack = navController::popBackStack2,
         )
+    }
+    composable<AppLimitsDest> {
+        AppLimitsScreen(onNavigateBack = navController::popBackStack2)
     }
     composable<SettingsDest> {
         SettingsScreen(

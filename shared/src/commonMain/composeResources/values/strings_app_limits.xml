@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_limits_title">App usage</string>
+    <string name="app_limits_android_only">App limits are available on Android.</string>
+    <string name="app_limits_today">Today</string>
+    <string name="app_limits_usage_access_title">Allow usage access</string>
+    <string name="app_limits_usage_access_description">Read screen time since local midnight to calculate app limits.</string>
+    <string name="app_limits_enable_blocking_title">Enable app blocking</string>
+    <string name="app_limits_enable_blocking_description">Let Goodtime notice when a limited app is open. Screen content is not read.</string>
+    <string name="app_limits_daily_limits">Daily limits</string>
+    <string name="app_limits_add_limit">Add limit</string>
+    <string name="app_limits_no_limits">No app limits yet.</string>
+    <string name="app_limits_apps_today">Apps today</string>
+    <string name="app_limits_search_apps">Search apps</string>
+    <string name="app_limits_select_apps">Choose apps</string>
+    <string name="app_limits_limit_name">Limit name</string>
+    <string name="app_limits_daily_limit_minutes">Daily limit in minutes</string>
+    <string name="app_limits_name_default">Daily limit</string>
+    <string name="app_limits_used_of">%1$s used of %2$s</string>
+    <string name="app_limits_app_already_limited">Already in another enabled limit</string>
+    <string name="app_limits_no_apps_found">No apps found.</string>
+    <string name="app_limits_save">Save</string>
+    <string name="app_limits_cancel">Cancel</string>
+    <string name="app_limits_delete">Delete</string>
+    <string name="app_limits_delete_confirmation">Delete this app limit?</string>
+    <string name="app_limits_limit_reached">Daily limit reached for %1$s.</string>
+    <string name="app_limits_limit_description">%1$d minutes per day</string>
+    <string name="app_limits_go_home">Go home</string>
+    <string name="app_limits_invalid_limit">Enter a limit greater than zero minutes.</string>
+    <string name="app_limits_choose_app">Choose at least one app.</string>
+    <string name="app_limits_select_at_least_one">Choose at least one app.</string>
+    <string name="app_limits_invalid_minutes">Enter a limit between 1 and 1440 minutes.</string>
+</resources>
